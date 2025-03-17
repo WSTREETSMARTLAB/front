@@ -1,11 +1,12 @@
-const { defineConfig } = require('@vue/cli-service')
-module.exports = defineConfig({
-  transpileDependencies: true,
+import { defineConfig } from '@vue/cli-service';
 
-  devServer: {
-    port: 3000,
-    historyApiFallback: true,
-    open: true,
-    hot: true
-  }
-})
+export default defineConfig({
+    transpileDependencies: true,
+
+    devServer: {
+        port: 3000,
+        historyApiFallback: true,
+        open: true,
+        hot: true
+    }
+});
