@@ -5,6 +5,8 @@ import store from './store';
 import axiosPlugin from './plugins/axios';
 import vuetify from './plugins/vuetify';
 
+import '@/styles/main.scss';
+
 createApp(App)
     .use(store)
     .use(router)
