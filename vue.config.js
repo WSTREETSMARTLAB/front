@@ -8,5 +8,13 @@ export default defineConfig({
         historyApiFallback: true,
         open: true,
         hot: true
+    },
+
+    css: {
+        loaderOptions: {
+            sass: {
+                additionalData: '@import "@/styles/_variables.scss";'
+            }
+        }
     }
 });
