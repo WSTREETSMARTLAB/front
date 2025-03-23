@@ -17,6 +17,10 @@
           <v-list-item to="/product"><v-list-item-title>Product</v-list-item-title></v-list-item>
           <v-list-item to="/pricing"><v-list-item-title>Prices</v-list-item-title></v-list-item>
         </v-list>
+
+        <div class="register-line text-center py-3">
+          New? <RouterLink to="/register" class="register-link">Create an account!</RouterLink>
+        </div>
       </div>
     </v-expand-transition>
 
@@ -26,8 +30,9 @@
     <v-footer app color="primary" class="px-2 d-flex justify-space-between align-center">
       <span class="text-caption">&copy; wstreet smart lab</span>
       <div class="d-flex gap-2">
-        <v-icon>mdi-linkedin</v-icon>
-        <v-icon>mdi-instagram</v-icon>
+        <img class="mr-1" :src="'/icons/W5SMTLogo.svg'" alt="Logo" style="width: 24px; height: 24px;" />
+        <v-icon class="mr-1">mdi-linkedin</v-icon>
+        <v-icon class="mr-1">mdi-instagram</v-icon>
       </div>
     </v-footer>
   </v-layout>
@@ -68,5 +73,18 @@ export default {
   width: 100%;
   padding-left: 16px;
   padding-right: 16px;
+}
+
+.register-line {
+  color: white;
+  font-size: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.register-link {
+  color: #FFB300; /* твой accent */
+  font-weight: bold;
+  margin-left: 4px;
+  text-decoration: underline;
 }
 </style>
