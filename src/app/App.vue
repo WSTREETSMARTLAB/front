@@ -1,11 +1,20 @@
 <template>
-  <div>
-    App vue
-  </div>
+  <v-app>
+    <component :is="layoutComponent" />
+  </v-app>
 </template>
 
-<script setup>
-</script>
+<script>
+import Default from '@/layouts/Default.vue'
 
-<style scoped>
-</style>
+export default {
+  name: 'App',
+  computed: {
+    layoutComponent () {
+      // const layout = this.$route.meta.layout || 'default'
+      // return layout === 'empty' ? EmptyLayout : Default
+      return Default;
+    }
+  }
+}
+</script>
