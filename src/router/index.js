@@ -1,14 +1,9 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Default from "../layouts/Default.vue";
-import HomePage from "@/modules/Home/views/HelloWorld.vue"
+import { createRouter, createWebHistory } from 'vue-router';
+import homeRoutes from '@/modules/Home/route.js';
 
 // сюда будут собираться модули
 const routes = [
-    {
-        path: '/',
-        component: HomePage,
-        meta: {layout: Default}
-    }
+    ...homeRoutes
 ]
 
 const router = createRouter({
