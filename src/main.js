@@ -5,6 +5,7 @@ import vuetify from './plugins/vuetify'
 
 import router from './router'
 import store from './store'
+import '@/app/styles/main.scss'
 
 createApp(App)
     .use(router)

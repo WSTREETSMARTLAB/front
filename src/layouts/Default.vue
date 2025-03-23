@@ -1,5 +1,7 @@
 <template>
   <v-layout>
+    <div>
+    </div>
     <v-main>
       <router-view />
     </v-main>
@@ -13,5 +15,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
