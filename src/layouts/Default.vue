@@ -2,10 +2,10 @@
   <v-layout>
     <v-app-bar app color="primary" class="d-flex justify-space-between align-center">
       <div class="d-flex align-center">
-        <v-app-bar-nav-icon class="d-md-none me-2" @click="menuOpen = !menuOpen" />
+        <v-app-bar-nav-icon class="text-beige d-md-none me-2" @click="menuOpen = !menuOpen" />
       </div>
       <v-spacer />
-      <v-btn to="/login" class="bg-secondary rounded-pill">
+      <v-btn to="/login" class="bg-secondary text-beige rounded-pill">
         Sign In
       </v-btn>
     </v-app-bar>
@@ -19,7 +19,7 @@
         </v-list>
 
         <div class="register-line text-center py-3">
-          New? <RouterLink to="/register" class="register-link">Create an account!</RouterLink>
+          New? <RouterLink to="/register" class="text-beige register-link">Create an account!</RouterLink>
         </div>
       </div>
     </v-expand-transition>
@@ -28,11 +28,11 @@
       <router-view />
     </v-main>
     <v-footer app color="primary" class="px-2 d-flex justify-space-between align-center">
-      <span class="text-caption">&copy; wstreet smart lab</span>
+      <span class="text-caption text-beige">&copy; wstreet smart lab</span>
       <div class="d-flex gap-2">
         <img class="mr-1" :src="'/icons/W5SMTLogo.svg'" alt="Logo" style="width: 24px; height: 24px;" />
-        <v-icon class="mr-1">mdi-linkedin</v-icon>
-        <v-icon class="mr-1">mdi-instagram</v-icon>
+        <v-icon class="text-beige mr-1">mdi-linkedin</v-icon>
+        <v-icon class="text-beige mr-1">mdi-instagram</v-icon>
       </div>
     </v-footer>
   </v-layout>
