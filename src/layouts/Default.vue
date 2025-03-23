@@ -3,6 +3,18 @@
     <v-app-bar app color="primary" class="d-flex justify-space-between align-center">
       <div class="d-flex align-center">
         <v-app-bar-nav-icon class="text-beige d-md-none me-2" @click="menuOpen = !menuOpen" />
+
+        <div class="d-none d-md-flex gap-4 ms-4">
+          <v-btn to="/about" variant="text" class="text-beige">
+            About
+          </v-btn>
+          <v-btn to="/product" variant="text" class="text-beige">
+            Product
+          </v-btn>
+          <v-btn to="/pricing" variant="text" class="text-beige">
+            Prices
+          </v-btn>
+        </div>
       </div>
       <v-spacer />
       <v-btn to="/login" class="bg-secondary text-beige rounded-pill">
