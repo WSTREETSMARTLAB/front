@@ -94,7 +94,7 @@ export default {
 }
 
 .register-link {
-  color: #FFB300; /* твой accent */
+  color: #FFB300;
   font-weight: bold;
   margin-left: 4px;
   text-decoration: underline;
