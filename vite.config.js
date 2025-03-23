@@ -13,7 +13,13 @@ export default defineConfig({
       '@': '/src'
     }
   },
-
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@/app/styles/_variables.scss";`
+      }
+    }
+  },
   server: {
     port: 3000,
     strictPort: true,
