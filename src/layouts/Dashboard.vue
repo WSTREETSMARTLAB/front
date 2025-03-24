@@ -9,11 +9,28 @@
       <v-icon class="mr-2" icon="mdi-logout" color="white" size="36" />
     </v-app-bar>
 
-    <v-main>
-      <div class="menu-button" @click="menuOpen = !menuOpen">
-        <v-icon icon="mdi-menu" class="bg-beige" size="42" />
-      </div>
+    <v-navigation-drawer
+        v-model="menuOpen"
+        temporary
+        location="left"
+        width="240"
+        class="bg-secondary"
+    >
+      <v-list>
+        <v-list-item title="Dashboard" prepend-icon="mdi-view-dashboard" @click="menuOpen = false" />
+        <v-list-item title="Settings" prepend-icon="mdi-cog-outline" @click="menuOpen = false" />
+        <v-list-item title="Profile" prepend-icon="mdi-account" @click="menuOpen = false" />
+      </v-list>
+    </v-navigation-drawer>
 
+    <v-main>
+      <div
+          v-if="!menuOpen"
+          class="menu-button bg-primary"
+          @click="menuOpen = true"
+      >
+        <v-icon icon="mdi-menu" class="bg-primary" size="42" />
+      </div>
       <router-view />
     </v-main>
   </v-layout>
@@ -32,7 +49,6 @@ export default {
 
 <style scoped>
 .menu-button{
-  background-color: #F5E1A4;
   height: 4rem;
   width: 4rem;
   border-radius: 8px;
@@ -46,6 +62,7 @@ export default {
   transition: transform 0.15s ease, box-shadow 0.2s ease, background-color 0.3s ease;
 
   &:hover {
+    background-color: #f9e9b8;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     transform: scale(1.05);
   }
