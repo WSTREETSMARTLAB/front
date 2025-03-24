@@ -16,7 +16,7 @@ export default createVuetify({
                     primary: '#1B5E20',
                     secondary: '#004D40',
                     accent: '#FFB300',
-                    footer: '#37474F',
+                    gradient: '#37474F',
                     beige: '#F5E1A4',
                     surface: '#ffffff',
                     background: '#f4f4f4'
