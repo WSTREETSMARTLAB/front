@@ -5,13 +5,7 @@
         <TextInput :label="'Username'"/>
         <TextInput :label="'Email'" />
         <TextInput :label="'Password'" />
-
-        <v-btn
-            type="submit"
-            class="bg-secondary text-beige rounded-pill"
-        >
-          Confirm
-        </v-btn>
+        <ConfirmBtn />
       </v-form>
     </div>
   </v-container>
@@ -19,10 +13,11 @@
 
 <script>
 import TextInput from "../components/TextInput.vue";
+import ConfirmBtn from "../components/ConfirmBtn.vue";
 
 export default {
   name: "Register",
-  components: { TextInput }
+  components: {ConfirmBtn, TextInput }
 }
 </script>
 
@@ -44,9 +39,5 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-}
-
-.v-btn{
-  margin-top: 1vh;
 }
 </style>
