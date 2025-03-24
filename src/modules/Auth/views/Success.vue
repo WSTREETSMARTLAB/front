@@ -1,27 +1,23 @@
 <template>
-  <v-container class="login-wrapper">
-    <div class="login-form bg-primary">
-      <v-form>
-        <TextInput :label="'Email'" />
-        <TextInput :label="'Password'" />
-        <ConfirmBtn :label="'Login'" />
-      </v-form>
+  <v-container class="success-wrapper">
+    <div class="success-form bg-primary">
+      <div class="text-center mr-2">Register Successful</div>
+      <ConfirmBtn :label="'Go to Dashboard'" />
     </div>
   </v-container>
 </template>
 
 <script>
-import TextInput from "../components/TextInput.vue";
 import ConfirmBtn from "../components/ConfirmBtn.vue";
 
 export default {
-  name: "Login",
-  components: {ConfirmBtn, TextInput}
+  name: "Success" ,
+  components: {ConfirmBtn}
 }
 </script>
 
 <style scoped>
-.login-wrapper {
+.success-wrapper {
   margin-top: 30vh;
   display: flex;
   justify-content: center;
@@ -29,7 +25,7 @@ export default {
   min-height: 30vh;
 }
 
-.login-form{
+.success-form{
   padding: 2rem;
   width: 100%;
   max-width: 30rem;

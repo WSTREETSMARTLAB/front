@@ -1,6 +1,7 @@
 import Login from "./views/Login.vue";
 import Register from "./views/Register.vue";
 import Verify from "./views/Verify.vue";
+import Success from "./views/Success.vue";
 
 export default [
     {
@@ -16,6 +17,11 @@ export default [
     {
         path: '/verify',
         component: Verify,
+        meta: { layout: 'auth' }
+    },
+    {
+        path: '/register_success',
+        component: Success,
         meta: { layout: 'auth' }
     }
 ]
