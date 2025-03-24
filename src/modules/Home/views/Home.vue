@@ -41,11 +41,11 @@ export default {
   //padding: 64px 16px 32px;
   .intro-content {
     display: grid;
-    height: 100vh;
+    height: 80vh;
     width: 100%;
     margin: 0 auto;
     text-align: center;
-    padding: 24px;
+    padding: 2rem;
 
     @media (min-width: 600px) {
       max-width: 500px;
@@ -66,6 +66,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-bottom: 8rem;
 
     .title {
       font-size: 2rem;
@@ -77,6 +78,18 @@ export default {
     .subtitle {
       font-size: 1.1rem;
       color: $dark-gray;
+    }
+  }
+
+  .intro-bottom {
+    justify-content: center;
+
+    .start-btn {
+      font-size: 1rem;
+
+      @media (min-width: 600px) {
+        font-size: 1.2rem;
+      }
     }
   }
 }
