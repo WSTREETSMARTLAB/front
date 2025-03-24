@@ -21,7 +21,7 @@ export default {
 
 <style scoped>
 .v-btn{
-  margin-top: 1vh;
+  margin-top: 2vh;
   width: 100%;
 }
 </style>
