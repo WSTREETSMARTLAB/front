@@ -1,6 +1,6 @@
 <template>
   <v-layout>
-    <v-main class="default-bg" color="secondary">
+    <v-main class="bg-secondary">
       <router-view />
     </v-main>
   </v-layout>
