@@ -42,7 +42,7 @@
     <v-footer app color="primary" class="px-2 d-flex justify-space-between align-center">
       <span class="text-caption text-beige">&copy; wstreet smart lab</span>
       <div class="d-flex gap-2">
-        <img class="mr-1" :src="'/icons/W5SMTLogo.svg'" alt="Logo" style="width: 24px; height: 24px;" />
+        <img class="mr-1" :src="W5SMTLogo" alt="Logo" style="width: 24px; height: 24px;" />
         <v-icon class="text-beige mr-1">mdi-linkedin</v-icon>
         <v-icon class="text-beige mr-1">mdi-instagram</v-icon>
       </div>
@@ -51,10 +51,13 @@
 </template>
 
 <script>
+import W5SMTLogo from '@/assets/icons/W5SMTLogo.svg'
+
 export default {
   name: 'Default',
   data () {
     return {
+      W5SMTLogo,
       menuOpen: false
     }
   }
