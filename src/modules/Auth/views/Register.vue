@@ -2,32 +2,27 @@
   <v-container class="register-wrapper">
     <div class="register-form bg-primary">
       <v-form>
-        <v-text-field
-            label="Username"
-            type="text"
-            variant="outlined"
-            hide-details
-        />
-        <v-text-field
-            label="Email"
-            type="text"
-            variant="outlined"
-            hide-details
-        />
-        <v-text-field
-            label="Password"
-            type="text"
-            variant="outlined"
-            hide-details
-        />
+        <TextInput :label="'Username'"/>
+        <TextInput :label="'Email'" />
+        <TextInput :label="'Password'" />
+
+        <v-btn
+            type="submit"
+            class="bg-secondary text-beige rounded-pill"
+        >
+          Confirm
+        </v-btn>
       </v-form>
     </div>
   </v-container>
 </template>
 
 <script>
+import TextInput from "../components/TextInput.vue";
+
 export default {
-  name: "Register"
+  name: "Register",
+  components: { TextInput }
 }
 </script>
 
@@ -51,10 +46,7 @@ export default {
   gap: 1rem;
 }
 
-.v-text-field {
-  background-color: white;
-  color: black;
-  border-radius: 8px;
+.v-btn{
   margin-top: 1vh;
 }
 </style>
