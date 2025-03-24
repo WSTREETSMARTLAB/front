@@ -1,5 +1,7 @@
 <template>
-  Home page
+  <v-container class="pa-0 fill-height">
+
+  </v-container>
 </template>
 
 <script>
@@ -9,5 +11,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
