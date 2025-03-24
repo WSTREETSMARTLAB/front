@@ -12,6 +12,12 @@
           <h1 class="title">WSTREET SMART LAB</h1>
           <p class="subtitle">We love technologies</p>
         </div>
+
+        <div class="intro-bottom">
+          <v-btn color="primary" class="start-btn" rounded size="large">
+            Get Started
+          </v-btn>
+        </div>
       </div>
     </v-container>
 
