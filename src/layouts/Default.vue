@@ -39,6 +39,7 @@
     <v-main class="default-bg">
       <router-view />
     </v-main>
+
     <v-footer app color="primary" class="px-2 d-flex justify-space-between align-center">
       <span class="text-caption text-beige">&copy; wstreet smart lab</span>
       <div class="d-flex gap-2">
