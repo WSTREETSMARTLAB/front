@@ -5,8 +5,8 @@
         <v-img src="https://randomuser.me/api/portraits/men/85.jpg" alt="Avatar" />
       </v-avatar>
       <v-spacer />
-      <v-icon class="mr-2" icon="mdi-email-outline" color="white" size="36" />
-      <v-icon class="mr-2" icon="mdi-logout" color="white" size="36" />
+      <v-icon class="mr-2" icon="mdi-email-outline" color="beige" size="36" />
+      <v-icon class="mr-2" icon="mdi-logout" color="beige" size="36" />
     </v-app-bar>
 
     <v-navigation-drawer
@@ -29,7 +29,7 @@
           class="menu-button bg-primary"
           @click="menuOpen = true"
       >
-        <v-icon icon="mdi-menu" class="bg-primary" size="42" />
+        <v-icon icon="mdi-menu" class="bg-primary" color="beige" size="42" />
       </div>
       <router-view />
     </v-main>
