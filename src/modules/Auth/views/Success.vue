@@ -2,7 +2,7 @@
   <v-container class="success-wrapper">
     <div class="success-form bg-primary">
       <div class="text-center mr-2">Register Successful</div>
-      <ConfirmBtn :label="'Go to Dashboard'" />
+      <ConfirmBtn to="/smart_tools" :label="'Go to Dashboard'" />
     </div>
   </v-container>
 </template>
