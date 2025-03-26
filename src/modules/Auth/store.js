@@ -5,7 +5,7 @@ export default {
     state: {
         username: '',
         email: '',
-        token: '',
+        isAuthenticated: false,
         message: '',
         error: ''
     },
@@ -14,8 +14,8 @@ export default {
             state.username = credentials.username;
             state.email = credentials.email
         },
-        setToken(state, token){
-            state.token = token;
+        setAuthStatus(state, status){
+            state.isAuthenticated = status;
         },
         setMessage(state, message){
             state.message = message;
@@ -43,9 +43,9 @@ export default {
             commit('setLoading', true);
             return manager.login(payload)
                 .then((res) => {
-                    commit('setToken', res.data.data.auth_token);
+                    localStorage.setItem('auth_token', res.data.data.auth_token);
+                    commit('setAuthStatus', true);
                     commit('setLoading', false);
-
                 })
                 .catch((err) => {
                     const error = err?.response?.data?.error;
@@ -56,18 +56,22 @@ export default {
             commit('setLoading', true);
             return manager.verify(payload)
                 .then((res) => {
-                    commit('setToken', res.data.data.auth_token);
+                    localStorage.setItem('auth_token', res.data.data.auth_token);
                     commit('setLoading', false);
                 })
                 .catch((err) => {
                     const error = err?.response?.data?.error;
                     commit('setError', error);
                 })
+        },
+        logout({commit}) {
+            commit('setLoading', true);
+            return manager.logout();
         }
     },
     getters: {
         getEmail: state => state.email,
-        getToken: state => state.token,
+        getAuthStatus: state => state.isAuthenticated,
         getMessage: state => state.message,
         getError: state => state.error
     }
