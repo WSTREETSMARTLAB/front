@@ -7,6 +7,7 @@
 <script>
 import Default from '@/layouts/Default.vue'
 import Auth from "@/layouts/Auth.vue";
+import Dashboard from "@/layouts/Dashboard.vue";
 
 export default {
   name: 'App',
@@ -16,6 +17,10 @@ export default {
 
       if (layout === 'auth') {
           return Auth;
+      }
+
+      if (layout === 'dashboard') {
+          return Dashboard;
       }
 
       return Default;
