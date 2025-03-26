@@ -5,7 +5,7 @@
           icon
           variant="flat"
           class="button-icon"
-          @click="logout"
+          @click="logoutUser"
       >
         <v-icon icon="mdi-logout" color="beige" size="36" />
       </v-btn>
@@ -68,7 +68,7 @@ export default {
   },
   methods: {
     ...mapActions('auth', ['logout']),
-    async logout() {
+    async logoutUser() {
       await this.logout();
       this.$router.push('/');
     }
