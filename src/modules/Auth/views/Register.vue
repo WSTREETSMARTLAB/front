@@ -3,8 +3,8 @@
     <div class="register-form bg-primary">
       <v-form @submit.prevent="onSubmit">
         <TextInput :label="'Username'" v-model="form.username"/>
-        <TextInput :label="'Email'" />
-        <TextInput :label="'Password'" />
+        <TextInput :label="'Email'" v-model="form.email" />
+        <TextInput :label="'Password'" v-model="form.password" />
         <ConfirmBtn />
       </v-form>
     </div>
@@ -32,15 +32,7 @@ export default {
     ...mapActions('auth', ['register']),
     async onSubmit() {
       this.$store.dispatch('setLoading', true);
-      await this.register(this.form)
-          .then((res) => {
-            this.$store.dispatch('setLoading', false)
-            console.log(res);
-          })
-          .catch((err) => {
-            this.$store.dispatch('setLoading', false);
-            console.error(err);
-          });
+      await this.register(this.form);
     }
   }
 }

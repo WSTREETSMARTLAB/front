@@ -1,6 +1,7 @@
 import manager from "./manager.js";
 
 export default {
+    namespaced: true,
     state: {
         username: '',
         email: '',
@@ -25,10 +26,12 @@ export default {
     },
     actions: {
         register({commit}, payload) {
+            commit('setLoading', true);
             return manager.register(payload)
                 .then((res) => {
                     commit('setMessage', res.data.message);
                     commit('setError', '');
+                    commit('setLoading', false);
                 })
                 .catch((err) => {
                     const error = err?.response?.data?.error;
