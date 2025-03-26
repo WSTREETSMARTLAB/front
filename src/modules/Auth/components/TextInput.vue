@@ -1,12 +1,13 @@
 <template>
   <v-text-field
       :label=label
-      v-model="modelValue"
+      :v-model="modelValue"
+      :model-value="modelValue"
+      @update:modelValue="$emit('update:modelValue', $event)"
       type="text"
       variant="outlined"
       hide-details
       density="compact"
-      @input="$emit('update:modelValue', $event)"
   />
 </template>
 
