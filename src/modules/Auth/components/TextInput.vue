@@ -1,10 +1,12 @@
 <template>
   <v-text-field
       :label=label
+      v-model="modelValue"
       type="text"
       variant="outlined"
       hide-details
       density="compact"
+      @input="$emit('update:modelValue', $event)"
   />
 </template>
 
@@ -12,6 +14,9 @@
 export default {
   name: "TextInput",
   props: {
+    modelValue: {
+      type: String,
+    },
     label: {
       type: String,
       default: ''

@@ -1,8 +1,8 @@
 <template>
   <v-container class="register-wrapper">
     <div class="register-form bg-primary">
-      <v-form>
-        <TextInput :label="'Username'"/>
+      <v-form @submit.prevent="onSubmit">
+        <TextInput :label="'Username'" v-model="form.username"/>
         <TextInput :label="'Email'" />
         <TextInput :label="'Password'" />
         <ConfirmBtn />
@@ -14,10 +14,35 @@
 <script>
 import TextInput from "../components/TextInput.vue";
 import ConfirmBtn from "../components/ConfirmBtn.vue";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "Register",
-  components: {ConfirmBtn, TextInput }
+  components: { ConfirmBtn, TextInput },
+  data() {
+    return {
+      form: {
+        username: '',
+        email: '',
+        password: ''
+      }
+    }
+  },
+  methods: {
+    ...mapActions('auth', ['register']),
+    async onSubmit() {
+      this.$store.dispatch('setLoading', true);
+      await this.register(this.form)
+          .then((res) => {
+            this.$store.dispatch('setLoading', false)
+            console.log(res);
+          })
+          .catch((err) => {
+            this.$store.dispatch('setLoading', false);
+            console.error(err);
+          });
+    }
+  }
 }
 </script>
 
