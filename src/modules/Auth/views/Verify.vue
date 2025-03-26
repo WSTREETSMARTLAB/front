@@ -1,8 +1,8 @@
 <template>
   <v-container class="verify-wrapper">
     <div class="verify-form bg-primary">
-      <v-form>
-        <TextInput :label="'Verification Code'" :v-model="code"/>
+      <v-form @submit.prevent="onSubmit">
+        <TextInput :label="'Verification Code'" v-model="code"/>
         <ConfirmBtn />
       </v-form>
     </div>
@@ -12,7 +12,7 @@
 <script>
 import ConfirmBtn from "../components/ConfirmBtn.vue";
 import TextInput from "../components/TextInput.vue";
-import {mapActions} from "vuex";
+import {mapActions, mapGetters} from "vuex";
 
 export default {
   name: "Verify" ,
@@ -22,10 +22,18 @@ export default {
       code: ''
     }
   },
+  computed: {
+    ...mapGetters('auth', ['getEmail'])
+  },
   methods: {
     ...mapActions('auth', ['verify']),
     async onSubmit() {
-      await this.verify(this.code);
+      const payload = {
+        email: this.getEmail,
+        code: this.code
+      }
+      await this.verify(payload);
+      this.$router.push('/register_success');
     }
   }
 }

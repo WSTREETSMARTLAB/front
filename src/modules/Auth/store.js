@@ -26,13 +26,13 @@ export default {
     },
     actions: {
         register({commit}, payload) {
-            commit('setLoading', true);
+            commit('setLoading', true, { root: true });
             return manager.register(payload)
                 .then((res) => {
                     commit('setCredentials', payload);
                     commit('setMessage', res.data.message);
                     commit('setError', '');
-                    commit('setLoading', false);
+                    commit('setLoading', false, { root: true });
                 })
                 .catch((err) => {
                     const error = err?.response?.data?.error;
@@ -53,6 +53,8 @@ export default {
                 });
         },
         verify({commit}, payload) {
+            console.log('verify')
+            console.log(payload)
             commit('setLoading', true);
             return manager.verify(payload)
                 .then((res) => {

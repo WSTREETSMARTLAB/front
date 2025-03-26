@@ -14,7 +14,7 @@
 <script>
 import TextInput from "../components/TextInput.vue";
 import ConfirmBtn from "../components/ConfirmBtn.vue";
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "Register",
@@ -28,10 +28,21 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapGetters('auth', ['getMessage']),
+  },
+  watch: {
+    getMessage(newMessage) {
+      if (newMessage) {
+        console.log('Сообщение после запроса:', newMessage);
+      }
+    }
+  },
   methods: {
     ...mapActions('auth', ['register']),
     async onSubmit() {
       await this.register(this.form);
+      this.$router.push('/verify');
     }
   }
 }
