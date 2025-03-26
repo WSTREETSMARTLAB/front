@@ -29,6 +29,7 @@ export default {
             commit('setLoading', true);
             return manager.register(payload)
                 .then((res) => {
+                    commit('setCredentials', payload);
                     commit('setMessage', res.data.message);
                     commit('setError', '');
                     commit('setLoading', false);
@@ -38,7 +39,31 @@ export default {
                     commit('setError', error);
                 });
         },
+        login({commit}, payload) {
+            commit('setLoading', true);
+            return manager.login(payload)
+                .then((res) => {
+                    commit('setToken', res.data.data.auth_token);
+                    commit('setLoading', false);
 
+                })
+                .catch((err) => {
+                    const error = err?.response?.data?.error;
+                    commit('setError', error);
+                });
+        },
+        verify({commit}, payload) {
+            commit('setLoading', true);
+            return manager.verify(payload)
+                .then((res) => {
+                    commit('setToken', res.data.data.auth_token);
+                    commit('setLoading', false);
+                })
+                .catch((err) => {
+                    const error = err?.response?.data?.error;
+                    commit('setError', error);
+                })
+        }
     },
     getters: {
         getEmail: state => state.email,

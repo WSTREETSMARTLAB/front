@@ -14,7 +14,7 @@
 <script>
 import TextInput from "../components/TextInput.vue";
 import ConfirmBtn from "../components/ConfirmBtn.vue";
-import { mapActions, mapGetters } from "vuex";
+import { mapActions } from "vuex";
 
 export default {
   name: "Register",
@@ -31,7 +31,6 @@ export default {
   methods: {
     ...mapActions('auth', ['register']),
     async onSubmit() {
-      this.$store.dispatch('setLoading', true);
       await this.register(this.form);
     }
   }
