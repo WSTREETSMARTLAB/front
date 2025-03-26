@@ -35,11 +35,11 @@
         class="bg-secondary"
     >
       <v-list>
-        <v-list-item title="Organization" prepend-icon="mdi-view-dashboard" @click="menuOpen = false" />
-        <v-list-item title="Smart Tools" prepend-icon="mdi-view-dashboard" @click="menuOpen = false" />
-        <v-list-item title="Alarms" prepend-icon="mdi-view-dashboard" @click="menuOpen = false" />
+        <v-list-item title="Organization" prepend-icon="mdi-domain" @click="menuOpen = false" />
+        <v-list-item title="Smart Tools" prepend-icon="mdi-lightbulb-on-outline" @click="menuOpen = false" />
+        <v-list-item title="Alarms" prepend-icon="mdi-alert" @click="menuOpen = false" />
         <v-list-item title="Settings" prepend-icon="mdi-cog-outline" @click="menuOpen = false" />
-        <v-list-item title="Weather" prepend-icon="mdi-cog-outline" @click="menuOpen = false" />
+        <v-list-item title="Weather" prepend-icon="mdi-weather-rainy" @click="menuOpen = false" />
       </v-list>
     </v-navigation-drawer>
 
