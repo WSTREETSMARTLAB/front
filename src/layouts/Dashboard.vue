@@ -17,9 +17,15 @@
       >
         <v-icon icon="mdi-email-outline" color="beige" size="36" />
       </v-btn>
-      <v-avatar class="mr-2" size="48">
-        <v-img src="https://randomuser.me/api/portraits/men/85.jpg" alt="Avatar" />
-      </v-avatar>
+      <v-btn
+          icon
+          variant="flat"
+          class="avatar-button"
+      >
+        <v-avatar size="48">
+          <v-img src="https://randomuser.me/api/portraits/men/85.jpg" alt="Avatar" />
+        </v-avatar>
+      </v-btn>
     </v-app-bar>
     <v-navigation-drawer
         v-model="menuOpen"
@@ -29,9 +35,11 @@
         class="bg-secondary"
     >
       <v-list>
-        <v-list-item title="Dashboard" prepend-icon="mdi-view-dashboard" @click="menuOpen = false" />
+        <v-list-item title="Organization" prepend-icon="mdi-view-dashboard" @click="menuOpen = false" />
+        <v-list-item title="Smart Tools" prepend-icon="mdi-view-dashboard" @click="menuOpen = false" />
+        <v-list-item title="Alarms" prepend-icon="mdi-view-dashboard" @click="menuOpen = false" />
         <v-list-item title="Settings" prepend-icon="mdi-cog-outline" @click="menuOpen = false" />
-        <v-list-item title="Profile" prepend-icon="mdi-account" @click="menuOpen = false" />
+        <v-list-item title="Weather" prepend-icon="mdi-cog-outline" @click="menuOpen = false" />
       </v-list>
     </v-navigation-drawer>
 
@@ -107,6 +115,22 @@ export default {
   &:active {
     transform: scale(0.95);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.avatar-button {
+  border-radius: 50%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 4px;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  }
+
+  &:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
   }
 }
 </style>
