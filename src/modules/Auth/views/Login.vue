@@ -1,9 +1,9 @@
 <template>
   <v-container class="login-wrapper">
     <div class="login-form bg-primary">
-      <v-form>
-        <TextInput :label="'Email'" />
-        <TextInput :label="'Password'" />
+      <v-form @submit.prevent="onSubmit">
+        <TextInput :label="'Email'" v-model="form.email" />
+        <TextInput :label="'Password'" v-model="form.password" />
         <ConfirmBtn :label="'Login'" />
       </v-form>
     </div>
@@ -13,10 +13,26 @@
 <script>
 import TextInput from "../components/TextInput.vue";
 import ConfirmBtn from "../components/ConfirmBtn.vue";
+import {mapActions} from "vuex";
 
 export default {
   name: "Login",
-  components: {ConfirmBtn, TextInput}
+  components: {ConfirmBtn, TextInput},
+  data() {
+    return {
+      form: {
+        email: '',
+        password: ''
+      }
+    }
+  },
+  methods: {
+    ...mapActions('auth', ['login']),
+    async onSubmit() {
+      await this.login(this.form);
+      this.$router.push('/smart_tools');
+    }
+  }
 }
 </script>
 

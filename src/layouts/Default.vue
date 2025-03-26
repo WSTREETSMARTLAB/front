@@ -17,6 +17,9 @@
         </div>
       </div>
       <v-spacer />
+      <v-btn to="/register" class="bg-secondary text-beige rounded-pill d-none d-md-flex mr-2">
+        Sign Up
+      </v-btn>
       <v-btn to="/login" class="bg-secondary text-beige rounded-pill">
         Sign In
       </v-btn>

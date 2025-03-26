@@ -1,10 +1,10 @@
 <template>
   <v-container class="register-wrapper">
     <div class="register-form bg-primary">
-      <v-form>
-        <TextInput :label="'Username'"/>
-        <TextInput :label="'Email'" />
-        <TextInput :label="'Password'" />
+      <v-form @submit.prevent="onSubmit">
+        <TextInput :label="'Username'" v-model="form.username"/>
+        <TextInput :label="'Email'" v-model="form.email" />
+        <TextInput :label="'Password'" v-model="form.password" />
         <ConfirmBtn />
       </v-form>
     </div>
@@ -14,10 +14,37 @@
 <script>
 import TextInput from "../components/TextInput.vue";
 import ConfirmBtn from "../components/ConfirmBtn.vue";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "Register",
-  components: {ConfirmBtn, TextInput }
+  components: { ConfirmBtn, TextInput },
+  data() {
+    return {
+      form: {
+        username: '',
+        email: '',
+        password: ''
+      }
+    }
+  },
+  computed: {
+    ...mapGetters('auth', ['getMessage']),
+  },
+  watch: {
+    getMessage(newMessage) {
+      if (newMessage) {
+        console.log('Сообщение после запроса:', newMessage);
+      }
+    }
+  },
+  methods: {
+    ...mapActions('auth', ['register']),
+    async onSubmit() {
+      await this.register(this.form);
+      this.$router.push('/verify');
+    }
+  }
 }
 </script>
 
