@@ -1,14 +1,26 @@
 <template>
   <v-layout>
     <v-app-bar app color="primary" class="d-flex justify-space-between align-center">
-      <v-avatar class="ml-2" size="48">
+      <v-btn
+          icon
+          variant="flat"
+          class="button-icon"
+          @click="logout"
+      >
+        <v-icon icon="mdi-logout" color="beige" size="36" />
+      </v-btn>
+      <v-spacer />
+      <v-btn
+          icon
+          variant="flat"
+          class="button-icon mr-1"
+      >
+        <v-icon icon="mdi-email-outline" color="beige" size="36" />
+      </v-btn>
+      <v-avatar class="mr-2" size="48">
         <v-img src="https://randomuser.me/api/portraits/men/85.jpg" alt="Avatar" />
       </v-avatar>
-      <v-spacer />
-      <v-icon class="mr-2" icon="mdi-email-outline" color="beige" size="36" />
-      <v-icon class="mr-2" icon="mdi-logout" color="beige" size="36" />
     </v-app-bar>
-
     <v-navigation-drawer
         v-model="menuOpen"
         temporary
@@ -37,11 +49,20 @@
 </template>
 
 <script>
+import {mapActions} from "vuex";
+
 export default {
   name: "Dashboard",
   data () {
     return {
       menuOpen: false
+    }
+  },
+  methods: {
+    ...mapActions('auth', ['logout']),
+    async logout() {
+      await this.logout();
+      this.$router.push('/');
     }
   }
 }
@@ -70,6 +91,22 @@ export default {
   &:active {
     transform: scale(0.96);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.button-icon {
+  background-color: #1B5E20 !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+
+  &:hover {
+    background-color: #2E7D32 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.08);
+  }
+
+  &:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
   }
 }
 </style>
